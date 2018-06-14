@@ -14,11 +14,9 @@ export default class Dropdown extends React.Component {
         
         let time_values;
         time_values = time_signatures.map((item, index) => {
-          {console.log("item", item)}
           return <option>{item}</option>
           })
 
-        {console.log("mapped", time_values)}
         return (
             <FormGroup>
               <Label for="exampleSelect"></Label>
