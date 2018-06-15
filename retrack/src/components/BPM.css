@@ -1,6 +1,11 @@
 /**
 * Rangeslider
 */
+
+.slider .custom-labels {
+  width:  300px;
+}
+
 .rangeslider {
   margin: 20px 0;
   position: relative;
