@@ -19,7 +19,7 @@ export default class BPMslider extends React.Component {
   };
 
   render () {
-    const { horizontal,  } = this.state
+    const { horizontal } = this.state
     const horizontalLabels = {
       0: 'Larghissimo',
       20: 'Grave',
