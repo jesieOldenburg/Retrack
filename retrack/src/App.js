@@ -5,8 +5,7 @@ import Login from './components/Login';
 import Form from './components/Form';
 import NewTrack from './components/NewTrack';
 import TrackCard from './components/TrackCards';
-// import Rebase from "re-base";
-// import { RebaseProvider } from "react-rebase";
+import base from './components/fb_init.js';
 
 
 class App extends Component {

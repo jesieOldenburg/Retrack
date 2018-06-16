@@ -5,7 +5,7 @@ import Header from './Header';
 import SongField from './SongField';
 import LyricsField from './LyricsField';
 import BPMslider from './BPM';
-import base from './fb_init';
+// import base from './fb_init';
 
 // function addUser(){
 //       base.post(`users`, {
