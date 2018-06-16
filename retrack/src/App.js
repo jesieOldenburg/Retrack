@@ -5,6 +5,8 @@ import Login from './components/Login';
 import Form from './components/Form';
 import NewTrack from './components/NewTrack';
 import TrackCard from './components/TrackCards';
+import base from './components/fb_init.js';
+
 
 class App extends Component {
   render() {

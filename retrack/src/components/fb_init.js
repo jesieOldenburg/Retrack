@@ -1,18 +1,16 @@
-import Rebase from 're-base'
-import firebase from 'firebase'
+import Rebase from 're-base';
+import firebase from 'firebase';
 
-var config = {
+const config = {
     apiKey: "AIzaSyASjpPI_5TxmB_PyOW9zAXaTDQJY8EvYXY",
     authDomain: "retrack-2c47a.firebaseapp.com",
     databaseURL: "https://retrack-2c47a.firebaseio.com",
     projectId: "retrack-2c47a",
     storageBucket: "retrack-2c47a.appspot.com",
     messagingSenderId: "660367147167"
-  };
+}
 
-firebase.initializeApp(config);
+const app = firebase.initializeApp(config);
+const base = Rebase.createClass(app.database());
 
-const app = firebase.initializeApp(config)
-const base = Rebase.createClass(app.database())
-
-export { base }
+export default base;

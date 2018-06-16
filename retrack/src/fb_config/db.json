@@ -1,0 +1,18 @@
+{
+    "users": [
+        {
+            "uid": "",
+            "username": "",
+            "email": ""
+        }
+    ],
+
+    "tracks": [
+        {
+            "track_title": "",
+            "time_signature": "",
+            "bpm": "",
+            "notes": ""
+        }
+    ]
+}
