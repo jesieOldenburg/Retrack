@@ -5,18 +5,23 @@ import Header from './Header';
 import SongField from './SongField';
 import LyricsField from './LyricsField';
 import BPMslider from './BPM';
-// import base from './fb_init';
+import base from './fb_init';
 
-// function addUser(){
-//       base.post(`users`, {
-//         data: {name: 'Tyler McGinnis', age: 25},
-//         then(err){
-//           if(!err){
-//             console.log("post req error");
-//           }
-//         }
-//       });
-//     }
+function saveTrack() {
+      base.post(`users`, {
+        data: {
+            email: 'Tyler McGinnis', 
+            uid: 25,
+            username: 'test'
+        },
+        then(err){
+            console.log("post req error");
+          if(!err){
+            console.log('POST SUCCESFULL');
+          }
+        }
+      });
+    }
 
 export default class NewTrack extends React.Component {
 
@@ -30,7 +35,7 @@ export default class NewTrack extends React.Component {
 
     saveTrack (e) {
         e.preventDefault();
-        // addUser();
+        saveTrack();
         console.log("clicked");
 
     }

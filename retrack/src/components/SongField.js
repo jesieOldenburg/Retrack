@@ -6,15 +6,19 @@ export default class SongField extends React.Component {
         super(props);
 
         this.state = {
-          song: ' '
+          track_title: ' '
         }
+    }
+
+    onChange = (e) => {
+      console.log('onchange');
     }
 
     render (){
         return(
      <FormGroup>
           <Label for="">Track Title
-            <Input type="text" />
+            <Input type="text" onChange={this.onChange} />
           </Label>
     </FormGroup>
             )
