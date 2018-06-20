@@ -3,6 +3,7 @@ import { Container, Row, Col } from 'reactstrap';
 import Slider from 'react-rangeslider';
 import './BPM.css';
 
+let bpmData;
 
 export default class BPMslider extends React.Component {
   constructor (props, context) {
@@ -16,6 +17,8 @@ export default class BPMslider extends React.Component {
     this.setState({
       horizontal: value
     })
+  bpmData = this.state; 
+  console.log("bpm", bpmData)
   };
 
   render () {
@@ -34,6 +37,7 @@ export default class BPMslider extends React.Component {
       168: 'Presto',
       200: 'Prestissimo'
     }
+
 
     const formatBPM = value => value + ' BPM'
 

@@ -8,6 +8,10 @@ export default class Dropdown extends React.Component {
     
     constructor(props) {
     super(props);
+
+    this.state = {
+        value: "",
+      }
     }
 
     render () {
@@ -20,7 +24,7 @@ export default class Dropdown extends React.Component {
         return (
             <FormGroup>
               <Label for="exampleSelect"></Label>
-              <Input type="select" name="select" id="exampleSelect">
+              <Input value={this.state} type="select" name="select" id="exampleSelect">
                 {time_values}
               </Input>
             </FormGroup>

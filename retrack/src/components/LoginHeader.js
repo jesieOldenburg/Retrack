@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './Login.css'
+import './LoginHeader.css'
 
 export default function LoginHeader (props) {
     return (

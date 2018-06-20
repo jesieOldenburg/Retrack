@@ -1,18 +1,17 @@
 {
-    "users": [
-        {
-            "uid": "",
-            "username": "",
-            "email": ""
-        }
-    ],
+    "users": [{
+        "uid": "",
+        "username": "",
+        "email": "",
+        "tracks": [{
+            "track-id": ""
+        }]
+    }],
 
-    "tracks": [
-        {
-            "track_title": "",
-            "time_signature": "",
-            "bpm": "",
-            "notes": ""
-        }
-    ]
+    "tracks": [{
+        "track_title": "",
+        "time_signature": "",
+        "bpm": "",
+        "notes": ""
+    }]
 }

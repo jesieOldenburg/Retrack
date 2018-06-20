@@ -1,0 +1,16 @@
+.main-heading {
+    font-family: 'Helvetica', sans-serif;
+    font-weight: 300;  
+    font-size: 56px; 
+    color: #FF9F1C;
+
+}
+
+.heading-description {
+    font-family: 'Helvetica', sans-serif;
+    font-weight: 300;  
+    font-size: 14px; 
+    color: #FF9F1C;
+    margin-bottom: 50px; 
+    margin-top: -15px; 
+}
