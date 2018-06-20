@@ -3,19 +3,20 @@ import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 import './Form.css';
 
 export default class LoginForm extends React.Component {
+  //Need to add state here...
   render() {
     return (
       <Form>
-        <FormGroup className="form-group">
-          <Label className="email-label" for="exampleEmail">Email</Label>
-          <Input type="email" name="email" id="exampleEmail" placeholder="Email" />
+        <FormGroup className="email-form-group">
+          <Label className="email-label" for="email-login">Email</Label>
+          <Input type="email" name="email" id="email-login" />
         </FormGroup>
-        <FormGroup>
-          <Label className="password-label" for="examplePassword">Password</Label>
-          <Input className="password-field" type="password" name="password" id="examplePassword" placeholder="Password" />
+        <FormGroup className="password-form-group">
+          <Label className="password-label" for="password-login">Password</Label>
+          <Input className="password-field" type="password" name="password" id="password-login" />
         </FormGroup>
        
-        <Button>Submit</Button>
+        <Button className="login-button">Submit</Button>
       </Form>
     );
   }

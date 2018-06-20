@@ -6,6 +6,7 @@ import SongField from './SongField';
 import LyricsField from './LyricsField';
 import BPMslider from './BPM';
 import base from './fb_init';
+import './NewTrack.css';
 
 export default class NewTrack extends React.Component {
 
@@ -82,7 +83,7 @@ export default class NewTrack extends React.Component {
                 <Header name="Create A New Track" />
                 <Form onSubmit={this.onSubmit} >
                     <FormGroup>
-                        <Label for="track_title">Track Title
+                        <Label for="track_title" className="track-title-label">Track Title
                             <Input value={this.state.track_title} type="text" name="track_title" onChange={this.titleLogger} ></Input>
                         </Label>
                     </FormGroup>
