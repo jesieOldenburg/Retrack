@@ -1,12 +1,16 @@
-import { googleProvider, rebase }  from './constants'
-import calendarEventsRequest from '../components/calender/gcalSetup'
+// import { googleProvider, base }  from './constants'
 import firebase from 'firebase';
+import base from './../components/fb_init';
+export const googleProvider = new firebase.auth.GoogleAuthProvider();
+const user = firebase.auth().currentUser;
+var faker = require('faker');
+
 /*
   This module encompasses all of the user authorization functionality in the application.  It handles login through google Authentication.
  */
  
 export function auth (email, pw) {
-  return rebase.initializedApp.auth().createUserWithEmailAndPassword(email, pw)
+  return base.initializedApp.auth().createUserWithEmailAndPassword(email, pw)
     .then((data) => {
       console.log("data is", data);
       saveUser(data);
@@ -14,46 +18,32 @@ export function auth (email, pw) {
 }
 
 export function logout () {
-  return rebase.initializedApp.auth().signOut()
+  return base.initializedApp.auth().signOut()
 }
 
 export function login (email, pw) {
-  return rebase.initializedApp.auth().signInWithEmailAndPassword(email, pw)
+  return base.initializedApp.auth().signInWithEmailAndPassword(email, pw)
 }
 
 export function loginWithGoogle () {
-  return rebase.initializedApp.auth().signInWithPopup(googleProvider)
+  return base.initializedApp.auth().signInWithPopup(googleProvider)
   .then((data) => {
-    var calendarId = data.additionalUserInfo.profile.email;
-    calendarEventsRequest(calendarId);
-
+    console.log('userdata', data);
     saveUser(data.user);
   })
 }
 
 export function resetPassword (email) {
-  return rebase.initializedApp.auth().sendPasswordResetEmail(email)
+  return base.initializedApp.auth().sendPasswordResetEmail(email)
 }
 
 export function saveUser (user) {
   console.log("save user", user);
-  return rebase.initializedApp.database().ref().child(`users/${user.uid}/info`)
+  return base.initializedApp.database().ref().child(`users`)
     .update({
-      email: user.email,
-      uid: user.uid
-    })
-    .then(() => {
-
-      return user;
-    })
-}
-
-export function saveSongs (user, songs) {
-  console.log("save user", user);
-  return rebase.initializedApp.database().ref().child(`users/${user.uid}/info`)
-    .update({
-      song: songs
-
+      email: faker.name.email(), //user.email,
+      uid: faker.random.uuid(), //user.uid,
+      displayName: faker.name.findName() //additionalUserInfo.profile.given_name
     })
     .then(() => {
 

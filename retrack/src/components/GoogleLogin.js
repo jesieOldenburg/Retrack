@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { login, loginWithGoogle, resetPassword } from './userAuth';
-import {googleProvider} from './constants';
+import { login, loginWithGoogle, resetPassword } from './../config/userAuth';
+import {googleProvider} from './../config/userAuth';
+
 
 function setErrorMsg(error) {
   return {
@@ -8,7 +9,7 @@ function setErrorMsg(error) {
   }
 }
 
-class Login extends Component {
+class GoogleLogin extends Component {
     constructor(props){
         super(props);
     
@@ -45,4 +46,4 @@ class Login extends Component {
   }
 }
 
-export default Login;
+export default GoogleLogin;
