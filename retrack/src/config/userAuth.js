@@ -4,6 +4,9 @@ import base from './../components/fb_init';
 export const googleProvider = new firebase.auth.GoogleAuthProvider();
 const user = firebase.auth().currentUser;
 var faker = require('faker');
+var userEmail = faker.internet.email();
+var userUID = faker.random.uuid();
+var fakeUser = faker.name.findName();
 
 /*
   This module encompasses all of the user authorization functionality in the application.  It handles login through google Authentication.
@@ -37,13 +40,13 @@ export function resetPassword (email) {
   return base.initializedApp.auth().sendPasswordResetEmail(email)
 }
 
-export function saveUser (user) {
+export function saveUser (user, uid) {
   console.log("save user", user);
-  return base.initializedApp.database().ref().child(`users`)
+  return base.initializedApp.database().ref().child(`users/${user.uid}`)
     .update({
-      email: faker.name.email(), //user.email,
-      uid: faker.random.uuid(), //user.uid,
-      displayName: faker.name.findName() //additionalUserInfo.profile.given_name
+      email: userEmail, //user.email,
+      uid: userUID, //user.uid,
+      displayName: fakeUser //additionalUserInfo.profile.given_name
     })
     .then(() => {
 
