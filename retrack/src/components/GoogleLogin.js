@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { login, loginWithGoogle, resetPassword } from './../config/userAuth';
 import {googleProvider} from './../config/userAuth';
 import './GoogleLogin.css';
+var userAuthState;
 
 function setErrorMsg(error) {
   return {
@@ -29,13 +30,14 @@ class GoogleLogin extends Component {
         this.setState({
           loggedIn: true
         })
+
         loginWithGoogle(googleProvider)
         .catch((error) => {
             this.setState(setErrorMsg('Invalid username/password.'))
         })
-        console.log("This ethan dude is goofy", this.state);
-        debugger;
+
     }
+    
 
     resetPassword = () => {
         resetPassword(this.email.value)
@@ -45,12 +47,13 @@ class GoogleLogin extends Component {
 
     
   render () {
+    userAuthState = this.state.loggedIn;
+console.log("auth", this.state.loggedIn);
     return (
       <div className="col-sm-6 col-sm-offset-3">
-        <button className="google-login-button" onClick={this.handleSubmit}>Login With Google</button>
+        <button value={this.state.loggedIn} className="google-login-button" onClick={this.handleSubmit}>Login With Google</button>
       </div>
     )
   }
 }
-
 export default GoogleLogin;

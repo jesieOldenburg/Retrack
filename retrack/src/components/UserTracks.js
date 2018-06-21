@@ -17,6 +17,7 @@ class UserTracks extends React.Component {
         };
         this.handleEdit = this.handleEdit.bind(this);
         this.deleteTrack = this.deleteTrack.bind(this);
+        this.renderEditModal = this.renderEditModal.bind(this);
     }
 
     componentDidMount () {
@@ -60,18 +61,22 @@ class UserTracks extends React.Component {
 
     }
 
+    renderEditModal = () => {}
+
+
     render () {
         console.log("stateee", this.state);
         if (this.state.isLoaded === true) {
             const db_tracks  = this.state.items.map((item, index ) => {
-                return <Card key={item.key} className="song-cards">
-                <CardBody>
-                  <Input value={item.track_title} placeholder={item.track_title} name={item.key} className="card-title">{item.track_title}</Input>
-                  <Input value={item.time_signature} placeholder={item.time_signature} className="card-text">{item.time_signature}</Input>
-                  <Input value={item.bpm} placeholder={item.bpm} className="card-text">{item.bpm}</Input>
-                  <Input value={item.notes} placeholder={item.notes} className="card-text">{item.notes}</Input>
-                  <Button value={this.state.edit} onClick={() => { this.handleEdit(item) }}>Edit Track</Button>
-                  <Button onClick={this.deleteTrack}>Delete Track</Button>
+                return 
+                <Card key={item.key} className="song-cards">
+                  <CardBody>
+                    <Input value={item.track_title} placeholder={item.track_title} name={item.key} className="card-title">{item.track_title}</Input>
+                    <Input value={item.time_signature} placeholder={item.time_signature} className="card-text">{item.time_signature}</Input>
+                    <Input value={item.bpm} placeholder={item.bpm} className="card-text">{item.bpm}</Input>
+                    <Input value={item.notes} placeholder={item.notes} className="card-text">{item.notes}</Input>
+                    <Button value={this.state.edit} onClick={() => { this.handleEdit(item) }}>Edit Track</Button> 
+                    <Button onClick={this.deleteTrack}>Delete Track</Button>
                 </CardBody>
               </Card>
           })
