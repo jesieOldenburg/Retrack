@@ -8,7 +8,7 @@ import TrackCard from './components/TrackCards';
 import UserTracks from './components/UserTracks';
 import base from './components/fb_init.js';
 import Logout from './components/Logout';
-import userAuthState from './components/NewTrack';
+import user from './components/userAuth';
 
 class App extends Component {
     constructor(props) {
@@ -19,8 +19,23 @@ class App extends Component {
         }
     }
 
+    componentDidMount(){
+    this.authListener = base.initializedApp.auth().onAuthStateChanged((user) =>{
+      if (user){
+        this.setState({
+          loggedIn: true,
+        });
+
+      }else{
+        this.setState({
+          loggedIn: false,
+        })
+      }
+    })
+  }
+
   render() {
-              console.log("fucking auth", userAuthState);
+
     const userLoggedIn = this.state.loggedIn;
     if (userLoggedIn === false ) {
         return <div className="App">
