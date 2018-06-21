@@ -7,19 +7,40 @@ import NewTrack from './components/NewTrack';
 import TrackCard from './components/TrackCards';
 import UserTracks from './components/UserTracks';
 import base from './components/fb_init.js';
-
+import Logout from './components/Logout';
 
 class App extends Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            loggedIn: false
+        }
+    }
+
+
+
   render() {
-    return (
-      <div className="App">
+    const userLoggedIn = this.state.loggedIn;
+    if (userLoggedIn === false ) {
+        return <div className="App">
           <img src={logo} className="App-logo" alt="logo" />
           <Login />
+      </div>
+    } else {
+        
+        this.setState({})
+    return (
+      <div className="App">
+        <div className="logout-button-container" >
+            <Logout />
+        </div>
           <NewTrack />
           <UserTracks />
 
       </div>
     );
+    }
   }
 }
 

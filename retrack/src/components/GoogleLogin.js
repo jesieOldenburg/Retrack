@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { login, loginWithGoogle, resetPassword } from './../config/userAuth';
 import {googleProvider} from './../config/userAuth';
-
+import './GoogleLogin.css';
 
 function setErrorMsg(error) {
   return {
@@ -15,6 +15,7 @@ class GoogleLogin extends Component {
     
         this.state = {
             loginMessage: null,
+            loggedIn: false
         }
     
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -24,10 +25,16 @@ class GoogleLogin extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault()
+        
+        this.setState({
+          loggedIn: true
+        })
         loginWithGoogle(googleProvider)
         .catch((error) => {
             this.setState(setErrorMsg('Invalid username/password.'))
         })
+        console.log("This ethan dude is goofy", this.state);
+        debugger;
     }
 
     resetPassword = () => {
@@ -40,7 +47,7 @@ class GoogleLogin extends Component {
   render () {
     return (
       <div className="col-sm-6 col-sm-offset-3">
-        <button className="login-button" onClick={this.handleSubmit}>Login With Google</button>
+        <button className="google-login-button" onClick={this.handleSubmit}>Login With Google</button>
       </div>
     )
   }

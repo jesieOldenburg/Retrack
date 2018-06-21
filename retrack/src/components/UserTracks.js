@@ -1,6 +1,6 @@
 import React from 'react';
 import { Card, Button, CardImg, CardTitle, CardText, CardGroup,
- CardSubtitle, CardBody } from 'reactstrap';
+ CardSubtitle, CardBody, Input} from 'reactstrap';
 // import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Header from './Header';
 import './UserTracks.css';
@@ -12,7 +12,8 @@ class UserTracks extends React.Component {
         this.state = {
           error: null,
           isLoaded: false,
-          items: []
+          items: [],
+          edit: false
         };
         this.handleEdit = this.handleEdit.bind(this);
         this.deleteTrack = this.deleteTrack.bind(this);
@@ -35,7 +36,12 @@ class UserTracks extends React.Component {
      }//Component Did Mount Closing Bracket
 
     handleEdit = (item) => {
+      this.setState({edit: true});
 
+      console.log("what item", item.key);
+      
+      const TRACK_ID = item.key;
+      
       base.post(`tracks/${item.key}`, {
         data: {
             track_title: `${item.track_title}`,
@@ -46,9 +52,8 @@ class UserTracks extends React.Component {
         },
         then(err){
             console.log("erroro");
-        }
+        },
       });
-
     }
 
     deleteTrack = (e) => {
@@ -61,11 +66,11 @@ class UserTracks extends React.Component {
             const db_tracks  = this.state.items.map((item, index ) => {
                 return <Card key={item.key} className="song-cards">
                 <CardBody>
-                  <CardTitle name={item.key} className="card-title">{item.track_title}</CardTitle>
-                  <CardText className="card-text">{item.time_signature}</CardText>
-                  <CardText className="card-text">{item.bpm}</CardText>
-                  <CardText className="card-text">{item.notes}</CardText>
-                  <Button onClick={() => { this.handleEdit(item) }}>Edit Track</Button>
+                  <Input value={item.track_title} placeholder={item.track_title} name={item.key} className="card-title">{item.track_title}</Input>
+                  <Input value={item.time_signature} placeholder={item.time_signature} className="card-text">{item.time_signature}</Input>
+                  <Input value={item.bpm} placeholder={item.bpm} className="card-text">{item.bpm}</Input>
+                  <Input value={item.notes} placeholder={item.notes} className="card-text">{item.notes}</Input>
+                  <Button value={this.state.edit} onClick={() => { this.handleEdit(item) }}>Edit Track</Button>
                   <Button onClick={this.deleteTrack}>Delete Track</Button>
                 </CardBody>
               </Card>
@@ -80,8 +85,25 @@ class UserTracks extends React.Component {
         
         );
 
+        } else if (this.state.edit !== false) {
+
+              <Card key={this.props.key} className="{this.props.className}">
+                <CardBody>
+                  <CardTitle name={this.props.name} className="card-title">{this.props.value}</CardTitle>
+                  <CardText className="card-text">{this.props.value}</CardText>
+                  <CardText className="card-text">{this.props.value}</CardText>
+                  <CardText className="card-text">{this.props.value}</CardText>
+                  <Button value={this.state.edit} >Edit Track</Button>
+                  <Button onClick={this.deleteTrack}>Delete Track</Button>
+                </CardBody>
+              </Card>
         } else {
-            return <div>LOOOADD.....</div>
+            return (
+            <div>
+              <Header name="Your Saved Tracks" />
+              <div>LOOOADD.....</div>
+            </div>
+            );
         }
             
         }

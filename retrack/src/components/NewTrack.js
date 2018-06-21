@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
+import { Button, Form, FormGroup, Label, Input, FormText, Col } from 'reactstrap';
 import Dropdown from './Dropdown';
 import Header from './Header';
 import SongField from './SongField';
@@ -103,6 +103,10 @@ export default class NewTrack extends React.Component {
                     </FormGroup>
                     <Button outline size="lg" type="submit" color="primary">Save Track</Button>{' '}
                 </Form>
+
+                <Col>
+                    <Button>View Stored Tracks</Button>
+                </Col>
             </div>
             )
     }
