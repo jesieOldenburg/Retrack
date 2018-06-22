@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Form, FormGroup, Label, Input, FormText, Col } from 'reactstrap';
 import base from './fb_init';
+import './TrackEditModal.css';
 
 class EditTrackModal extends React.Component {
     constructor(props) {
@@ -26,7 +27,7 @@ class EditTrackModal extends React.Component {
     }
     titleLogger = (e) => {
         const userTitle = e.target.value;
-        
+
         this.setState({track_title: userTitle})
         console.log('track_title', this.state);
     }
@@ -77,35 +78,35 @@ class EditTrackModal extends React.Component {
     render() {
         return (
             <div>
-                <Button color="danger" onClick={this.toggle}>{this.props.buttonLabel}</Button>
-                <Modal value={this.props.fb_key} isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
+                <Button outline className="edit-button" onClick={this.toggle}>{this.props.buttonLabel}</Button>
+                <Modal centered="true" value={this.props.fb_key} isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
                     <ModalHeader toggle={this.toggle}>{}</ModalHeader>
                     <ModalBody>
                     	<Form onSubmit={this.onSubmit} >
 		                	<FormGroup>
-		                		<Label for="track_title" className="track-title-label">Track Title
-		                            <Input placeholder={this.props.trackName} onChange={this.titleLogger}></Input>
+		                		<Label className="modal-label" for="track_title" className="track-title-label">Track Title
+		                            <Input className="modal-input" placeholder={this.props.trackName} onChange={this.titleLogger}></Input>
 		                        </Label>
 		                    </FormGroup>
 		                    <FormGroup>
-		                        <Label for="time_signature" >Time Signature
-		                        	<Input placeholder={this.props.timeSig} onChange={this.timeSigLogger}></Input>
+		                        <Label className="modal-label" for="time_signature" >Time Signature
+		                        	<Input className="modal-input" placeholder={this.props.timeSig} onChange={this.timeSigLogger}></Input>
 		                        </Label>
 		                    </FormGroup>
 		                    <FormGroup>
-		                        <Label for="bpm">Tempo
-		                        	<Input placeholder={this.props.beatsPerMin} onChange={this.tempoLogger}></Input>
+		                        <Label className="modal-label" for="bpm">Tempo
+		                        	<Input className="modal-input" placeholder={this.props.beatsPerMin} onChange={this.tempoLogger}></Input>
 		                        </Label >
 		                    </FormGroup >
 		                    <FormGroup>
-		                      <Label for="notes">Notes</Label>
-		                      <Input placeholder={this.props.notesProp} onChange={this.noteLogger} type="textarea" name="notes"/>
+		                      <Label className="modal-label" for="notes">Notes</Label>
+		                      <Input className="modal-input" placeholder={this.props.notesProp} onChange={this.noteLogger} type="textarea" name="notes"/>
 		                    </FormGroup>
 		                </Form>
                     </ModalBody>
                     <ModalFooter>
-                        <Button color="primary" onClick={this.onSubmit}>Save Changes</Button>{' '}
-                        <Button color="secondary" onClick={this.toggle}>Cancel</Button>
+                        <Button outline className="modal-button" color="primary" onClick={this.onSubmit}>Save Changes</Button>{' '}
+                        <Button outline className="modal-button" onClick={this.toggle}>Cancel</Button>
                     </ModalFooter>
                 </Modal>
             </div>

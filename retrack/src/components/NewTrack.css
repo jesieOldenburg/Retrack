@@ -1,10 +1,78 @@
 .page-h1 {
 font-family: 'Helvetica', sans-serif;
-    font-weight: 300;  
-    font-size: 56px; 
-    color: #FF9F1C;
+    font-weight: 300;
+    font-size: 56px;
+    color: #393E41;
+    margin: auto;
+    margin-top: 30px;
 }
 
 .track-title-label {
-    color: #FF9F1C;
+  margin-bottom: 20px;
+    color: #393E41;
+    font-family: 'Helvetica', sans-serif;
+    font-size: 20px;
+    font-weight:400;
+}
+.track-title-field{
+width: 200px;
+}
+
+.timesig-label{
+  margin-bottom: 20px;
+color: #393E41;
+font-family: 'Helvetica', sans-serif;
+font-size: 20px;
+font-weight:400;
+}
+
+.timesig-field {
+  width: 200px;
+}
+
+.bpm-label {
+  margin-bottom: 20px;
+color: #393E41;
+font-family: 'Helvetica', sans-serif;
+font-size: 20px;
+font-weight:400;
+}
+
+.bpm-field {
+width: 200px;
+}
+
+.notes-label {
+  margin-bottom: 20px;
+  color: #393E41;
+  font-family: 'Helvetica', sans-serif;
+  font-size: 20px;
+  font-weight:400;
+}
+
+.notes-field {
+margin: auto;
+width: 300px;
+}
+
+.stored-tracks-button {
+  font-size: 16px;
+  font-family: 'Helvetica', sans-serif;
+  font-weight: 200;
+  margin-bottom: 35px;
+  width: 160px;
+  height: 50px;
+  color: #1A535C;
+  border: 1px solid #1A535C;
+}
+
+.save-track-button {
+    font-size: 16px;
+    font-family: 'Helvetica', sans-serif;
+    font-weight: 200;
+    margin: 30px 0px 20px 0px;
+    width: 160px;
+    height: 50px;
+    color: #1A535C;
+    border: 1px solid #1A535C;
 }

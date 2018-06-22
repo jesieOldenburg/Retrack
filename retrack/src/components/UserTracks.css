@@ -1,11 +1,17 @@
+.page-h1 {
+  margin-bottom: 25px;
+}
+
 .card-container {
     width: 400px;
     margin: auto;
-    /* display: flex; */
+    display: flex;
+    flex-flow: column-reverse wrap;
+    align-items: center;
 }
 
 .song-cards {
-    border: 3px solid #05F140;
+    border: 2px solid #A62639;
     width: 300px;
     margin: 10px;
     padding: 15px;
@@ -15,30 +21,55 @@ CardGroup {
     width: 30%;
 }
 
-.card-title {
+.CardTitle {
+
     color: #1F2041;
 }
 
-.card-text {
+.CardText {
+
     color: #1F2041;
+}
+
+.card-notes-label {
+  text-transform: uppercase;
+  text-decoration: underline;
+  text-decoration-style: double;
+  text-decoration-color: #A62639;
+  text-underline-position: below;
+
+}
+
+.CardNotes {
+  font-size: 12px;
+  text-align: center;
+  max-width: 250px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+p.CardNotes:hover {
+    overflow: visible;
+    white-space: normal;
+}
+
+.CardSubtitle {
+
+  text-transform: uppercase;
+  text-decoration: underline;
+  text-decoration-style: double;
+  text-decoration-color: #A62639;
+  text-underline-position: below;
 }
 
 .delete-button {
-    background-color: #586F7C;
-    padding: 15px;
-    margin: 10px;
-    color: #F4F4F9;
-    font-family: 'Helvetica', sans-serif;
-    font-weight: 500;
-    font-size: 16px;
-}
-
-.edit-button {
-    background-color: #586F7C;
-    padding: 15px;
-    margin: 10px;
-    color: #F4F4F9;
-    font-family: 'Helvetica', sans-serif;
-    font-weight: 500;
-    font-size: 16px;
+  font-size: 16px;
+  font-family: 'Helvetica', sans-serif;
+  font-weight: 200;
+  margin-bottom: 35px;
+  width: 160px;
+  height: 50px;
+  color: #1A535C;
+  border: 1px solid #1A535C;
 }
