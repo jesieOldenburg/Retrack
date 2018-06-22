@@ -63,7 +63,7 @@ export default class LoginForm extends React.Component {
           <Input value={this.state.password} className="password-field" type="password" name="password" id="password-login" onChange={this.passwordChange} />
         </FormGroup>
        
-        <Button type="submit" className="login-button" onSubmit={this.onSubmit}>Submit</Button>
+        <Button outline color="primary" type="submit" className="login-button" onSubmit={this.onSubmit}>Submit</Button>
       </Form>
     );
   }

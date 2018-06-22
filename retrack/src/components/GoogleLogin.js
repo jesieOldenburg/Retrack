@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Button} from 'reactstrap';
 import { login, loginWithGoogle, resetPassword } from './../config/userAuth';
 import {googleProvider} from './../config/userAuth';
 import './GoogleLogin.css';
@@ -51,7 +52,7 @@ class GoogleLogin extends Component {
 console.log("auth", this.state.loggedIn);
     return (
       <div className="col-sm-6 col-sm-offset-3">
-        <button value={this.state.loggedIn} className="google-login-button" onClick={this.handleSubmit}>Login With Google</button>
+        <Button outline color="primary" value={this.state.loggedIn} className="google-login-button" onClick={this.handleSubmit}>Login With Google</Button>
       </div>
     )
   }

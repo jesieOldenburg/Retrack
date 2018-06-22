@@ -50,7 +50,7 @@ class App extends Component {
             <Logout />
         </div>
           <NewTrack />
-          <UserTracks />
+
       </div>
     );
     }

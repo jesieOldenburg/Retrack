@@ -14,16 +14,11 @@ export default class Login extends React.Component {
 
     render () {
         return(
-            <Router >
                 <div>
                     <LoginHeader />
                     <Form />
                     <GoogleLogin />
-                    <Link to="/NewTrack" ></Link>
-                    <Route path="/NewTrack" component={NewTrack} />
                 </div>
-            </Router>
-
             )
     }
 }

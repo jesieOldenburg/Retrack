@@ -7,6 +7,7 @@ import LyricsField from './LyricsField';
 import BPMslider from './BPM';
 import base from './fb_init';
 import './NewTrack.css';
+import UserTracks from './UserTracks';
 
 export default class NewTrack extends React.Component {
 
@@ -17,7 +18,8 @@ export default class NewTrack extends React.Component {
             track_title: '',
             time_signature: '',
             bpm: 0,
-            notes: ''
+            notes: '',
+            viewTracks: false
         }
 
         // this.saveTrack = this.saveTrack.bind(this);
@@ -26,6 +28,7 @@ export default class NewTrack extends React.Component {
         this.timeSigLogger = this.timeSigLogger.bind(this);
         this.tempoLogger = this.tempoLogger.bind(this);
         this.noteLogger = this.noteLogger.bind(this);
+        this.renderUserTracks = this.renderUserTracks.bind(this);
     }
 
     titleLogger = (e) => {
@@ -56,6 +59,10 @@ export default class NewTrack extends React.Component {
         console.log('notes', this.state);
     }
 
+    renderUserTracks = () => {
+        this.setState({viewTracks: true})
+    }
+
      onSubmit = (event) => {
       // userTitle = this.state.value; 
       // event.preventDefault();
@@ -78,7 +85,8 @@ export default class NewTrack extends React.Component {
     }
 
     render(){
-        return (
+        if (this.state.viewTracks === false) {
+            return (
             <div>
                 <Header name="Create A New Track" />
                 <Form onSubmit={this.onSubmit} >
@@ -105,9 +113,17 @@ export default class NewTrack extends React.Component {
                 </Form>
 
                 <Col>
-                    <Button>View Stored Tracks</Button>
+                    <Button value={this.state.viewTracks} onClick={this.renderUserTracks}>View Stored Tracks</Button>
                 </Col>
             </div>
             )
+        } else if (this.state.viewTracks === true) {
+            return (
+                <div>
+                    <UserTracks />
+                </div>    )
+        }
+
+        
     }
 }
