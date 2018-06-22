@@ -9,6 +9,12 @@ import base from './fb_init';
 import './NewTrack.css';
 import UserTracks from './UserTracks';
 
+var faker = require('faker');
+var fakeTrack = faker.random.word(),
+    fakeTime = faker.random.number() + '/' + faker.random.number(),
+    fakeBPM = faker.random.number(),
+    fakeNotes = faker.lorem.paragraphs();
+
 export default class NewTrack extends React.Component {
 
     constructor (props) {
@@ -69,10 +75,10 @@ export default class NewTrack extends React.Component {
 
       base.push(`tracks`, {
         data: {
-            track_title: this.state.track_title,
-            time_signature: this.state.time_signature,
-            bpm: this.state.bpm,
-            notes: this.state.notes
+            track_title: fakeTrack, 
+            time_signature: fakeBPM, 
+            bpm: fakeBPM, 
+            notes: fakeNotes 
         },
         then(err){
             console.log("post req error");

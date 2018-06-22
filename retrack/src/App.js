@@ -15,7 +15,8 @@ class App extends Component {
         super(props);
 
         this.state = {
-            loggedIn: false
+            loggedIn: false,
+            relogin: true
         }
     }
 
@@ -24,6 +25,7 @@ class App extends Component {
       if (user){
         this.setState({
           loggedIn: true,
+          relogin: false
         });
 
       }else{
@@ -50,9 +52,12 @@ class App extends Component {
             <Logout />
         </div>
           <NewTrack />
-
       </div>
     );
+    } else if (this.state.relogin === false) {
+      return <div>
+              <p>Hie</p>
+            </div>
     }
   }
 }

@@ -69,7 +69,7 @@ class UserTracks extends React.Component {
     		back: true
     	});
 
-    	window.location.reload();
+    	// window.location.reload();
     }
 
 
@@ -104,7 +104,10 @@ class UserTracks extends React.Component {
       } else if (this.state.edit === true && this.state.loaded === true) {
           return <TrackEditModal />
       } else if (this.state.back === true) {
-      		return <NewTrack />
+      		return (
+      			<div>
+	      			<NewTrack />
+	      		</div>)
       } else {
             return (
             <div>
