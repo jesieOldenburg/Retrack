@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { Button, Form, FormGroup, Label, Input, FormText, Col } from 'reactstrap';
 import Dropdown from './Dropdown';
 import Header from './Header';
@@ -93,35 +94,35 @@ export default class NewTrack extends React.Component {
     render(){
         if (this.state.viewTracks === false) {
             return (
-            <div>
-                <Header  name="New Track" />
-                <Form onSubmit={this.onSubmit} >
-                    <FormGroup>
-                        <Label for="track_title" className="track-title-label">Track Title
-                            <Input className="track-title-field" value={this.state.track_title} type="text" name="track_title" onChange={this.titleLogger} ></Input>
-                        </Label>
-                    </FormGroup>
-                    <FormGroup>
-                        <Label className="timesig-label" for="time_signature" >Time Signature
-                            <Input className="timesig-field" value={this.state.time_signature} type="text" name="time_signature" onChange={this.timeSigLogger}></Input>
-                        </Label>
-                    </FormGroup>
-                    <FormGroup>
-                        <Label className="bpm-label" for="bpm">Tempo
-                            <Input className="bpm-field" value={this.state.bpm} type="text" name="bpm" onChange={this.tempoLogger} ></Input>
-                        </Label >
-                    </FormGroup >
-                    <FormGroup>
-                      <Label className="notes-label" for="notes">Notes</Label>
-                      <Input className="notes-field" value={this.state.notes} type="textarea" name="notes" onChange={this.noteLogger} />
-                    </FormGroup>
-                    <Button className="save-track-button" outline size="lg" type="submit" color="primary">Save Track</Button>{' '}
-                </Form>
+                <div>
+                    <Header  name="New Track" />
+                    <Form onSubmit={this.onSubmit} >
+                        <FormGroup>
+                            <Label for="track_title" className="track-title-label">Track Title
+                                <Input className="track-title-field" value={this.state.track_title} type="text" name="track_title" onChange={this.titleLogger} ></Input>
+                            </Label>
+                        </FormGroup>
+                        <FormGroup>
+                            <Label className="timesig-label" for="time_signature" >Time Signature
+                                <Input className="timesig-field" value={this.state.time_signature} type="text" name="time_signature" onChange={this.timeSigLogger}></Input>
+                            </Label>
+                        </FormGroup>
+                        <FormGroup>
+                            <Label className="bpm-label" for="bpm">Tempo
+                                <Input className="bpm-field" value={this.state.bpm} type="text" name="bpm" onChange={this.tempoLogger} ></Input>
+                            </Label >
+                        </FormGroup >
+                        <FormGroup>
+                          <Label className="notes-label" for="notes">Notes</Label>
+                          <Input className="notes-field" value={this.state.notes} type="textarea" name="notes" onChange={this.noteLogger} />
+                        </FormGroup>
+                        <Button className="save-track-button" outline size="lg" type="submit" color="primary">Save Track</Button>{' '}
+                    </Form>
 
-                <Col>
-                    <Button className="stored-tracks-button" outline color="primary" value={this.state.viewTracks} onClick={this.renderUserTracks}>View Stored Tracks</Button>
-                </Col>
-            </div>
+                    <Col>
+                        <Button className="stored-tracks-button" outline color="primary" value={this.state.viewTracks} onClick={this.renderUserTracks}>View Stored Tracks</Button>
+                    </Col>
+                </div>
             )
         } else if (this.state.viewTracks === true) {
             return (

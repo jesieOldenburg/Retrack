@@ -79,9 +79,9 @@ class EditTrackModal extends React.Component {
         return (
             <div>
                 <Button outline className="edit-button" onClick={this.toggle}>{this.props.buttonLabel}</Button>
-                <Modal centered="true" value={this.props.fb_key} isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
+                <Modal  centered={true} autoFocus={true} value={this.props.fb_key} isOpen={this.state.modal} toggle={this.toggle} className="modal">
                     <ModalHeader toggle={this.toggle}>{}</ModalHeader>
-                    <ModalBody>
+                    <ModalBody className="modal-body" >
                     	<Form onSubmit={this.onSubmit} >
 		                	<FormGroup>
 		                		<Label className="modal-label" for="track_title" className="track-title-label">Track Title

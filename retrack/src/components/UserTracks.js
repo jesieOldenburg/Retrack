@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card, Button, CardImg, CardTitle, CardText, CardGroup,
  CardSubtitle, CardBody, Input} from 'reactstrap';
-// import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Header from './Header';
 import './UserTracks.css';
 import base from './fb_init';
@@ -70,7 +70,7 @@ class UserTracks extends React.Component {
     		back: true
     	});
 
-    	// window.location.reload();
+    	window.location.reload();
     }
 
 
@@ -95,24 +95,22 @@ class UserTracks extends React.Component {
               </Card>
           })
         return (
-        <div>
-            <Header name="Your Tracks" />
-            <div className="card-container">
-                {db_tracks}
-            </div>
-            <div className="return-button-container" >
-            	<Button value={this.state.back} onClick={this.goBack} className="return-button">Go Back</Button>
-            </div>
-        </div>
+          <div>
+              <Header name="Your Tracks" />
+              <div className="return-button-container" >
+                <Button outline value={this.state.back} onClick={this.goBack} className="return-button">Go Back</Button>
+              </div>
+              <div className="card-container">
+                  {db_tracks}
+              </div>
+          </div>
 
         );
       } else if (this.state.edit === true && this.state.loaded === true) {
           return <TrackEditModal />
       } else if (this.state.back === true) {
       		return (
-      			<div>
-	      			<NewTrack />
-	      		</div>)
+      			<NewTrack />)
       } else {
             return (
             <div>

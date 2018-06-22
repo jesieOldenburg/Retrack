@@ -9,11 +9,20 @@
   border: 1px solid #1A535C;
 }
 
+.modal {
+  max-width: 350px;
+  margin: auto;
+}
+/*
 .modal-label {
 
 }
 
 .modal-input {
+
+}
+
+.modal-body {
 
 }
 
@@ -26,4 +35,4 @@
   height: 50px;
   color: #1A535C;
   border: 1px solid #1A535C;
-}
+} */

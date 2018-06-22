@@ -3,17 +3,19 @@
 }
 
 .card-container {
-    width: 400px;
+    width: 325px;
     margin: auto;
     display: flex;
-    flex-flow: column-reverse wrap;
+    flex-flow: column-reverse nowrap;
     align-items: center;
+    justify-content: center;
+    /* align-content: center; */
 }
 
 .song-cards {
     border: 2px solid #A62639;
     width: 300px;
-    margin: 10px;
+    margin-bottom: 25px;
     padding: 15px;
 }
 
@@ -22,7 +24,6 @@ CardGroup {
 }
 
 .CardTitle {
-
     color: #1F2041;
 }
 
@@ -63,6 +64,17 @@ p.CardNotes:hover {
   text-underline-position: below;
 }
 
+.return-button {
+  font-size: 16px;
+  font-family: 'Helvetica', sans-serif;
+  font-weight: 200;
+  margin-bottom: 35px;
+  width: 160px;
+  height: 50px;
+  color: #1A535C;
+  border: 1px solid #1A535C;
+}
+
 .delete-button {
   font-size: 16px;
   font-family: 'Helvetica', sans-serif;
@@ -72,4 +84,20 @@ p.CardNotes:hover {
   height: 50px;
   color: #1A535C;
   border: 1px solid #1A535C;
+}
+
+.logout-button-container {
+    background-color: #A62639;
+    height: 80px;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.logout-button {
+  margin-right: 20px;
+  color: #E1E5F2;
+  border-color: #E1E5F2;
+
 }
