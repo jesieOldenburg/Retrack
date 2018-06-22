@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-
+import {Button} from 'reactstrap';
 import firebase from 'firebase';
 
 
@@ -8,8 +8,8 @@ class LogOut extends Component {
         super(props);
         this.handleLogOut = this.handleLogOut.bind(this);
 
-    } 
-        
+    }
+
     handleLogOut = (e) => {
     e.preventDefault()
     console.log("clicked logout");
@@ -17,13 +17,13 @@ class LogOut extends Component {
     .then(function() {
       console.log('Signout Succesfull')
    }, function(error) {
-      console.log('Signout Failed')  
+      console.log('Signout Failed')
    });
     }
-    
+
     render () {
         return (
-            <button onClick={this.handleLogOut} className="logout-button">Log Out</button>
+            <Button outline onClick={this.handleLogOut} className="logout-button">Log Out</Button>
         )
     }
 

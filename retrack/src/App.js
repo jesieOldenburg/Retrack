@@ -9,6 +9,7 @@ import UserTracks from './components/UserTracks';
 import base from './components/fb_init.js';
 import Logout from './components/Logout';
 import user from './components/userAuth';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 class App extends Component {
     constructor(props) {

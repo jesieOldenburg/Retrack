@@ -29,5 +29,21 @@
 }
 
 .landing-header-container {
-  margin-top: 75px; 
+  margin-top: 45px;
+}
+
+.logout-button-container {
+    background-color: #A62639;
+    height: 80px;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.logout-button {
+  margin-right: 20px;
+  color: #E1E5F2;
+  border-color: #E1E5F2;
+
 }

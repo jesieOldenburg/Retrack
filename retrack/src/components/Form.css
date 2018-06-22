@@ -5,7 +5,7 @@
     font-weight: 900;
     /* position: relative; */
     /* top: 2px; right: -11px; */
-    color: #FF9F1C;
+    color: #A62639;
 }
 
 .password-label {
@@ -15,30 +15,35 @@
     font-weight: 900;
     /* position: relative; */
     /* top: 2px; right: 15px; */
-    color: #FF9F1C;
+    color: #A62639;
 }
 
 #password-login {
     margin: auto;
-    width: 200px; 
+    width: 200px;
     height: 25px;
-    border-color: #2EC4B6;
-    border-width: medium;
+    border-color: #1A535C;
+    border-width: thin;
 }
 
-#email-login { 
+#email-login {
     margin: auto;
     width: 200px;
     height: 25px;
-    border-color: #2EC4B6;
-    border-width: medium;
+    border-color: #1A535C;
+    border-width: thin;
 }
 
 .login-button {
-    margin-top: 60px; 
-    font-size: 16px;
-    font-family: 'Helvetica', sans-serif;
-    font-weight: 400;
+  font-size: 16px;
+  font-family: 'Helvetica', sans-serif;
+  font-weight: 200;
+  margin-bottom: 35px;
+  margin-top: 125px;
+  width: 160px;
+  height: 50px;
+  color: #1A535C;
+  border: 1px solid #1A535C;
 }
 
 /* .email-form-group {

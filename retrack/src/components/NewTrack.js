@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { Button, Form, FormGroup, Label, Input, FormText, Col } from 'reactstrap';
 import Dropdown from './Dropdown';
 import Header from './Header';
@@ -11,19 +12,19 @@ import UserTracks from './UserTracks';
 
 var faker = require('faker');
 var fakeTrack = faker.random.word(),
-    fakeTime = faker.random.number() + '/' + faker.random.number(),
-    fakeBPM = faker.random.number(),
+    fakeTime = Math.floor((Math.random() * 6) + 1) + " / " + Math.floor((Math.random() * 11) + 1),
+    fakeBPM =  Math.floor((Math.random() * 299) + 1) + ' BPM',
     fakeNotes = faker.lorem.paragraphs();
 
 export default class NewTrack extends React.Component {
 
     constructor (props) {
         super(props);
-       
+
         this.state = {
             track_title: '',
             time_signature: '',
-            bpm: 0,
+            bpm: '0' + ' BPM',
             notes: '',
             viewTracks: false
         }
@@ -39,7 +40,7 @@ export default class NewTrack extends React.Component {
 
     titleLogger = (e) => {
         const userTitle = e.target.value;
-        
+
         this.setState({track_title: userTitle})
         console.log('track_title', this.state);
     }
@@ -70,15 +71,15 @@ export default class NewTrack extends React.Component {
     }
 
      onSubmit = (event) => {
-      // userTitle = this.state.value; 
+      // userTitle = this.state.value;
       // event.preventDefault();
 
       base.push(`tracks`, {
         data: {
-            track_title: fakeTrack, 
-            time_signature: fakeBPM, 
-            bpm: fakeBPM, 
-            notes: fakeNotes 
+            track_title: fakeTrack,
+            time_signature: fakeTime,
+            bpm: fakeBPM,
+            notes: fakeNotes
         },
         then(err){
             console.log("post req error");
@@ -93,35 +94,35 @@ export default class NewTrack extends React.Component {
     render(){
         if (this.state.viewTracks === false) {
             return (
-            <div>
-                <Header name="Create A New Track" />
-                <Form onSubmit={this.onSubmit} >
-                    <FormGroup>
-                        <Label for="track_title" className="track-title-label">Track Title
-                            <Input value={this.state.track_title} type="text" name="track_title" onChange={this.titleLogger} ></Input>
-                        </Label>
-                    </FormGroup>
-                    <FormGroup>
-                        <Label for="time_signature" >Time Signature
-                            <Input value={this.state.time_signature} type="text" name="time_signature" onChange={this.timeSigLogger}></Input>
-                        </Label>
-                    </FormGroup>
-                    <FormGroup>
-                        <Label for="bpm">Tempo
-                            <Input value={this.state.bpm} type="text" name="bpm" onChange={this.tempoLogger} ></Input>
-                        </Label >
-                    </FormGroup >
-                    <FormGroup>
-                      <Label for="notes">Notes</Label>
-                      <Input value={this.state.notes} type="textarea" name="notes" onChange={this.noteLogger} />
-                    </FormGroup>
-                    <Button outline size="lg" type="submit" color="primary">Save Track</Button>{' '}
-                </Form>
+                <div>
+                    <Header  name="New Track" />
+                    <Form onSubmit={this.onSubmit} >
+                        <FormGroup>
+                            <Label for="track_title" className="track-title-label">Track Title
+                                <Input className="track-title-field" value={this.state.track_title} type="text" name="track_title" onChange={this.titleLogger} ></Input>
+                            </Label>
+                        </FormGroup>
+                        <FormGroup>
+                            <Label className="timesig-label" for="time_signature" >Time Signature
+                                <Input className="timesig-field" value={this.state.time_signature} type="text" name="time_signature" onChange={this.timeSigLogger}></Input>
+                            </Label>
+                        </FormGroup>
+                        <FormGroup>
+                            <Label className="bpm-label" for="bpm">Tempo
+                                <Input className="bpm-field" value={this.state.bpm} type="text" name="bpm" onChange={this.tempoLogger} ></Input>
+                            </Label >
+                        </FormGroup >
+                        <FormGroup>
+                          <Label className="notes-label" for="notes">Notes</Label>
+                          <Input className="notes-field" value={this.state.notes} type="textarea" name="notes" onChange={this.noteLogger} />
+                        </FormGroup>
+                        <Button className="save-track-button" outline size="lg" type="submit" color="primary">Save Track</Button>{' '}
+                    </Form>
 
-                <Col>
-                    <Button value={this.state.viewTracks} onClick={this.renderUserTracks}>View Stored Tracks</Button>
-                </Col>
-            </div>
+                    <Col>
+                        <Button className="stored-tracks-button" outline color="primary" value={this.state.viewTracks} onClick={this.renderUserTracks}>View Stored Tracks</Button>
+                    </Col>
+                </div>
             )
         } else if (this.state.viewTracks === true) {
             return (
@@ -130,6 +131,6 @@ export default class NewTrack extends React.Component {
                 </div>    )
         }
 
-        
+
     }
 }
