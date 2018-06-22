@@ -2,6 +2,9 @@ import React from 'react';
 import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 import './Form.css';
 import base from './fb_init';
+
+var faker = require('faker');
+
 export default class LoginForm extends React.Component {
    
     constructor(props) {
@@ -11,18 +14,19 @@ export default class LoginForm extends React.Component {
             email: '',
             password: ''
         }
-        this.onSubmit = this.onSubmit.bind(this);
+        this.saveNewUser = this.saveNewUser.bind(this);
         this.emailChange = this.emailChange.bind(this);
         this.passwordChange = this.passwordChange.bind(this);
     }
 
-    onSubmit = (e) => {
+    saveNewUser = (e) => {
+      console.log("submit");
       e.preventDefault();
-      base.push(`users`, {
+     base.push('users', {
         data: {
-            email: this.state.email,
-            uid: '001',
-            username: 'je', 
+            email: faker.internet.email(), 
+            uid: faker.random.uuid(),
+            username: faker.name.findName()
         },
         then(err){
             console.log("post req error");
@@ -31,9 +35,8 @@ export default class LoginForm extends React.Component {
           }
         }
       })
-
     }
-
+    
     emailChange = (e) => {
       const userEmail = e.target.value;
         this.setState({
@@ -63,7 +66,7 @@ export default class LoginForm extends React.Component {
           <Input value={this.state.password} className="password-field" type="password" name="password" id="password-login" onChange={this.passwordChange} />
         </FormGroup>
        
-        <Button type="submit" className="login-button" onSubmit={this.onSubmit}>Submit</Button>
+        <Button outline color="primary"  className="login-button" onClick={this.saveNewUser}>Submit</Button>
       </Form>
     );
   }

@@ -3,8 +3,8 @@
     text-align: left;
     font-family: 'Helvetica', sans-serif;
     font-weight: 900;
-    position: relative;
-    top: 2px; right: -11px;
+    /* position: relative; */
+    /* top: 2px; right: -11px; */
     color: #FF9F1C;
 }
 
@@ -13,22 +13,22 @@
     text-align: left;
     font-family: 'Helvetica', sans-serif;
     font-weight: 900;
-    /* margin: px; */
-    position: relative;
-    top: 2px; right: 15px;
+    /* position: relative; */
+    /* top: 2px; right: 15px; */
     color: #FF9F1C;
 }
 
-#password-login { /* password field for login screen */
+#password-login {
+    margin: auto;
+    width: 200px; 
     height: 25px;
     border-color: #2EC4B6;
     border-width: medium;
 }
 
-#email-login { /**/
-    position: relative;
-    left: 26px;
-    margin-bottom: 0px 0px 10px 15px;
+#email-login { 
+    margin: auto;
+    width: 200px;
     height: 25px;
     border-color: #2EC4B6;
     border-width: medium;
@@ -36,25 +36,20 @@
 
 .login-button {
     margin-top: 60px; 
-    border-radius: 5px;
-    height: 50px;
-    width: 80px;
-    font-size: 18px;
+    font-size: 16px;
     font-family: 'Helvetica', sans-serif;
-    font-weight: 700;
-    color: #FDFFFC;
-    background-color: #2EC4B6;
+    font-weight: 400;
 }
 
-.email-form-group {
+/* .email-form-group {
     display: flex;
     justify-content: center;
     margin-bottom: 15px;
 
-}
+} */
 
-.password-form-group {
+/* .password-form-group {
     display: flex;
     justify-content: center;
 
-}
+} */

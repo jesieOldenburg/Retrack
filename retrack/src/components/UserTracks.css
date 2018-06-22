@@ -1,13 +1,14 @@
 .card-container {
     width: 400px;
-    border: 1px solid black;
+    margin: auto;
     /* display: flex; */
 }
 
 .song-cards {
-    background-color: #586F7C;
+    border: 3px solid #05F140;
     width: 300px;
     margin: 10px;
+    padding: 15px;
 }
 
 CardGroup {
@@ -15,10 +16,29 @@ CardGroup {
 }
 
 .card-title {
-    color: #F4F4F9;
+    color: #1F2041;
 }
 
 .card-text {
-    color: #F4F4F9;
+    color: #1F2041;
 }
 
+.delete-button {
+    background-color: #586F7C;
+    padding: 15px;
+    margin: 10px;
+    color: #F4F4F9;
+    font-family: 'Helvetica', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.edit-button {
+    background-color: #586F7C;
+    padding: 15px;
+    margin: 10px;
+    color: #F4F4F9;
+    font-family: 'Helvetica', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+}

@@ -40,16 +40,30 @@ export function resetPassword (email) {
 
 export function saveUser (user, uid) {
   console.log("save user", user);
-  return base.initializedApp.database().ref().child(`users/${user.uid}`)
-    .update({
-      email: userEmail, //user.email,
-      uid: userUID, //user.uid,
-      displayName: fakeUser //additionalUserInfo.profile.given_name
-    })
-    .then(() => {
+// return base.initializedApp.database().ref().child(`users`)
+//     .push({
+//       email: userEmail, 
+//       uid: userUID.uid, 
+//       displayName: fakeUser 
+//     })
+//     .then(() => {
 
-      return user;
-    })
+//       return user;
+//     })
+  base.push(`user_obj/${user.uid}`, {
+        data: {
+            email: faker.internet.email(), 
+            uid: faker.random.uuid().uid,
+            username: faker.name.findName()
+        },
+        then(err){
+            console.log("post req error");
+          if(!err){
+            console.log('POST SUCCESFULL');
+          }
+        }
+      })
+  
 }
 
 firebase.auth().onAuthStateChanged(function(user) {
