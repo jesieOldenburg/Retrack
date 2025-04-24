@@ -11,7 +11,7 @@
     "react-dom": "^16.4.0",
     "react-rangeslider": "^2.2.0",
     "react-rebase": "^1.0.5",
-    "react-router-dom": "^4.3.1",
+    "react-router-dom": "^7.5.2",
     "react-scripts": "1.1.4",
     "reactstrap": "^6.1.0"
   },
